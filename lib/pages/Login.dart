@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:udalost/pages/SignIn.dart';
 
 class Login extends StatelessWidget {
 
@@ -16,7 +17,7 @@ class Login extends StatelessWidget {
                 style: TextStyle(
                   fontFamily: 'Raleway',
                   color: Color.fromRGBO(72, 72, 119, 1),
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w700,
                   fontSize: 50.0,
                 ),
               ),
@@ -29,6 +30,7 @@ class Login extends StatelessWidget {
                 'Lorem ipsum dolor sit amet et delectus accommodare his consul',
                 textAlign: TextAlign.center,
                 style: TextStyle(
+                  fontFamily: 'Raleway',
                   fontSize: 20.0,
                 ),
               ),
@@ -39,18 +41,17 @@ class Login extends StatelessWidget {
                   'S\'inscrire',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 30.0,
+                    fontSize: 27.0,
                     color: Colors.white,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
+                    fontFamily: 'Raleway',
                   ),
                 ),
                 color: Color.fromRGBO(72, 72, 119, 1),
                 splashColor: Color.fromRGBO(114, 103, 193, 1),
-                padding: EdgeInsets.only(
-                  top: 15.0,
-                  bottom: 15.0,
-                  right: 60.0,
-                  left: 60.0,
+                padding: EdgeInsets.symmetric(
+                  horizontal: 60.0,
+                  vertical: 15.0,
                 ),
                 shape: new RoundedRectangleBorder(
                   borderRadius: new BorderRadius.circular(50.0),
@@ -58,7 +59,7 @@ class Login extends StatelessWidget {
                 onPressed: (){},
               ),
               margin: EdgeInsets.only(
-                bottom: 7.0,
+                bottom: 10.0,
               ),
             ),
             Container(
@@ -67,18 +68,17 @@ class Login extends StatelessWidget {
                   'Se connecter',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 20.0,
+                    fontSize: 17.0,
                     color: Color.fromRGBO(72, 72, 119, 1),
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
+                    fontFamily: 'Raleway',
                   ),
                 ),
                 color: Colors.white,
                 splashColor: Color.fromRGBO(220, 220, 255, 1),
-                padding: EdgeInsets.only(
-                  top: 12.0,
-                  bottom: 12.0,
-                  right: 40.0,
-                  left: 40.0,
+                padding: EdgeInsets.symmetric(
+                  horizontal: 40.0,
+                  vertical: 12.0,
                 ),
                 shape: new RoundedRectangleBorder(
                   borderRadius: new BorderRadius.circular(50.0),
@@ -87,10 +87,17 @@ class Login extends StatelessWidget {
                     width: 3,
                   ),
                 ),
-                onPressed: (){},
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(
+                      builder: (context){
+                        return SignIn();
+                      },
+                    ),
+                  );
+                },
               ),
               margin: EdgeInsets.only(
-                top: 7.0,
+                top: 10.0,
               ),
             ),
           ],
