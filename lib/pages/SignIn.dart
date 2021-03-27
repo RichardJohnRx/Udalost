@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:udalost/components/TextFieldContainer.dart';
+import 'package:udalost/pages/SignUp.dart';
 
 class SignIn extends StatelessWidget {
   @override
@@ -36,7 +37,7 @@ class SignIn extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.015,
+                  height: MediaQuery.of(context).size.height * 0.01,
                 ),
                 TextFieldContainer(
                   child: TextField(
@@ -95,12 +96,12 @@ class SignIn extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: (){
-                        /*Navigator.push(context, MaterialPageRoute(
+                        Navigator.pushReplacement(context, MaterialPageRoute(
                             builder: (context){
                               return SignUp();
                             },
                           ),
-                        );*/
+                        );
                       },
                       child: Text(
                         'Sign Up',
