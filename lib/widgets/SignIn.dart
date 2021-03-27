@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:udalost/components/TextFieldContainer.dart';
-import 'package:udalost/pages/SignUp.dart';
+import 'package:udalost/widgets/SignUp.dart';
 
 class SignIn extends StatelessWidget {
   @override
