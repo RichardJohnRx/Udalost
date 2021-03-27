@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:udalost/pages/SignIn.dart';
+import 'package:udalost/pages/SignUp.dart';
 
 class Login extends StatelessWidget {
 
@@ -56,7 +57,14 @@ class Login extends StatelessWidget {
                 shape: new RoundedRectangleBorder(
                   borderRadius: new BorderRadius.circular(50.0),
                 ),
-                onPressed: (){},
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(
+                      builder: (context){
+                        return SignUp();
+                      },
+                    ),
+                  );
+                },
               ),
               margin: EdgeInsets.only(
                 bottom: 10.0,
