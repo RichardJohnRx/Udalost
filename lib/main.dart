@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:udalost/pages/Login.dart';
-import 'package:udalost/assets/Palette.dart' as Palettes;
+import 'package:udalost/assets/Palette.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Udalost',
       theme: ThemeData(
-        primarySwatch: Palettes.purpleNavy,
+        primarySwatch: Colors.red,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: Login(),

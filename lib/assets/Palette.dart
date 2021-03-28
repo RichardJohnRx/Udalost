@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 
-final _purpleNavyHEX = 0xFF484877;
+class Palette {
+  static const MaterialColor purpleNavy = MaterialColor(
+      _purpleNavyHEX,
+      <int, Color>{
+        50: Color(0xFF8080B3),
+        100: Color(0xFF7373AB),
+        200: Color(0xFF6666A3),
+        300: Color(0xFF5C5C99),
+        400: Color(0xFF54548C),
+        500: Color(_purpleNavyHEX),
+        600: Color(0xFF454573),
+        700: Color(0xFF3D3D66),
+        800: Color(0xFF363659),
+        900: Color(0xFF2E2E4D),
+      }
+  );
+  static const _purpleNavyHEX = 0xFF484877;
 
-final Map<int, Color> _purpleNavyMap = {
-  50:Color.fromRGBO(72,72,119,0.1),
-  100:Color.fromRGBO(72,72,119,0.2),
-  200:Color.fromRGBO(72,72,119,0.3),
-  300:Color.fromRGBO(72,72,119,0.4),
-  400:Color.fromRGBO(72,72,119,0.5),
-  500:Color.fromRGBO(72,72,119,0.6),
-  600:Color.fromRGBO(72,72,119,0.7),
-  700:Color.fromRGBO(72,72,119,0.8),
-  800:Color.fromRGBO(72,72,119,0.9),
-  900:Color.fromRGBO(72,72,119,1),
-};
-
-MaterialColor purpleNavy = MaterialColor(_purpleNavyHEX, _purpleNavyMap);
+}
