@@ -32,13 +32,14 @@ class EvenementPreview extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: height * 0.59,
+            top: height * 0.55,
             child: Container(
               width: width,
-              height: height * 0.41,
+              height: height * 0.45,
               child: Row(
                 children: <Widget>[
                   Expanded(
+                    flex: 3,
                     child: Container(
                       child: Column(
                         children:[
@@ -57,21 +58,22 @@ class EvenementPreview extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                       ),
                       padding: EdgeInsets.only(
-                        top: 2.5,
+                        top: 10.0,
                         left: 15.0,
                       ),
                     ),
                   ),
                   Expanded(
+                    flex: 1,
                     child: Container(
                       child: Column(
                         children:[
                           Text('10h00'),
                         ],
-                        crossAxisAlignment: CrossAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                       ),
                       padding: EdgeInsets.only(
-                        right: 10.0,
+                        top: 2.5,
                       ),
                     ),
                   ),

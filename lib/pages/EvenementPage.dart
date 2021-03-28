@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:udalost/components/TitleContainer.dart';
 import 'package:udalost/widgets/EvenementPreview.dart';
 
 class EvenementPage extends StatelessWidget {
@@ -9,13 +10,11 @@ class EvenementPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Title'),
       ),
-      body: Center(
+      body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
+            TitleContainer('Tes Événements'),
             Container(
               height: 210,
               child:ListView(
@@ -24,6 +23,35 @@ class EvenementPage extends StatelessWidget {
                   return EvenementPreview(index: index,);
                 }),
               ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.015,
+            ),
+            TitleContainer('Invitations'),
+            Container(
+              height: 210,
+              child:ListView(
+                scrollDirection: Axis.horizontal,
+                children: new List.generate(10, (index){
+                  return EvenementPreview(index: index,);
+                }),
+              ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.015,
+            ),
+            TitleContainer('Événements publics'),
+            Container(
+              height: 210,
+              child:ListView(
+                scrollDirection: Axis.horizontal,
+                children: new List.generate(10, (index){
+                  return EvenementPreview(index: index,);
+                }),
+              ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.015,
             ),
           ],
         ),
@@ -35,5 +63,6 @@ class EvenementPage extends StatelessWidget {
     );
   }
 }
+
 
 
