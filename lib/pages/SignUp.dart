@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:udalost/components/TextFieldContainer.dart';
-import 'package:udalost/widgets/SignUp.dart';
+import 'package:udalost/pages/SignIn.dart';
 
-class SignIn extends StatelessWidget {
+
+class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,8 +13,11 @@ class SignIn extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.08,
+                ),
                 Text(
-                  'Se connecter',
+                  'S\'Inscrire',
                   style: TextStyle(
                     fontFamily: 'Raleway',
                     color: Color.fromRGBO(72, 72, 119, 1),
@@ -22,12 +26,57 @@ class SignIn extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.08,
+                  height: MediaQuery.of(context).size.height * 0.09,
+                ),
+                TextFieldContainer(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Nom',
+                      icon: Icon(
+                        Icons.short_text,
+                        color: Color.fromRGBO(72, 72, 119, 1),
+                      ),
+                      border: InputBorder.none,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.01,
+                ),
+                TextFieldContainer(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Prénom',
+                      icon: Icon(
+                        Icons.short_text,
+                        color: Color.fromRGBO(72, 72, 119, 1),
+                      ),
+                      border: InputBorder.none,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.01,
                 ),
                 TextFieldContainer(
                   child: TextField(
                     decoration: InputDecoration(
                       hintText: 'Email',
+                      icon: Icon(
+                        Icons.mail,
+                        color: Color.fromRGBO(72, 72, 119, 1),
+                      ),
+                      border: InputBorder.none,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.01,
+                ),
+                TextFieldContainer(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Username',
                       icon: Icon(
                         Icons.person,
                         color: Color.fromRGBO(72, 72, 119, 1),
@@ -60,34 +109,34 @@ class SignIn extends StatelessWidget {
                   height: MediaQuery.of(context).size.height * 0.05,
                 ),
                 RaisedButton(
-                    child: Text(
-                      'Se connecter',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                        fontFamily: 'Raleway',
-                      ),
+                  child: Text(
+                    'S\'Inscrire',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                      fontFamily: 'Raleway',
                     ),
-                    color: Color.fromRGBO(72, 72, 119, 1),
-                    splashColor: Color.fromRGBO(114, 103, 193, 1),
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 60.0,
-                      vertical: 15.0,
-                    ),
-                    shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(50.0),
-                    ),
-                    onPressed: (){},
                   ),
+                  color: Color.fromRGBO(72, 72, 119, 1),
+                  splashColor: Color.fromRGBO(114, 103, 193, 1),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 60.0,
+                    vertical: 15.0,
+                  ),
+                  shape: new RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(50.0),
+                  ),
+                  onPressed: (){},
+                ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.015,
+                  height: MediaQuery.of(context).size.height * 0.01,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      'Don\'t have an account ? ',
+                      'Already have an Account ? ',
                       style: TextStyle(
                         fontFamily: 'Raleway',
                         fontWeight: FontWeight.w300,
@@ -98,13 +147,13 @@ class SignIn extends StatelessWidget {
                       onTap: (){
                         Navigator.pushReplacement(context, MaterialPageRoute(
                             builder: (context){
-                              return SignUp();
+                              return SignIn();
                             },
                           ),
                         );
                       },
                       child: Text(
-                        'Sign Up',
+                        'Sign In',
                         style: TextStyle(
                           fontFamily: 'Raleway',
                           fontWeight: FontWeight.w600,
