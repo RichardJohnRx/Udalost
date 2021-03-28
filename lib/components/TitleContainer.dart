@@ -3,8 +3,12 @@ import 'package:flutter/material.dart';
 class TitleContainer extends StatelessWidget {
   const TitleContainer(this.title,{
     Key key,
+    this.titleColor = Colors.black,
+    this.buttonColor = Colors.black,
   }) : super(key: key);
 
+  final Color titleColor;
+  final Color buttonColor;
   final String title;
 
   @override
@@ -22,7 +26,7 @@ class TitleContainer extends StatelessWidget {
             child: Text(
               title,
               style: TextStyle(
-                color: Colors.deepPurple,
+                color: titleColor,
                 fontFamily: 'Raleway',
                 fontWeight: FontWeight.bold,
                 fontSize: 25.0,
@@ -37,14 +41,14 @@ class TitleContainer extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50.0),
                     side: BorderSide(
-                      color: Colors.deepPurple[300],
+                      color: buttonColor,
                       width: 1.5,
                     ),
                   ),
                 ),
                 child: IconButton(
                   icon: Icon(Icons.arrow_forward_ios_rounded),
-                  color: Colors.deepPurple[300],
+                  color: buttonColor,
                   onPressed: () {},
                 ),
               ),

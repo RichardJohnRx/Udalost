@@ -48,7 +48,6 @@ class EvenementPreview extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 17,
                               fontWeight: FontWeight.bold,
-
                             ),
                           ),
                           Text('Description'),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:udalost/pages/EvenementPage.dart';
 import 'package:udalost/pages/Login.dart';
 import 'package:udalost/assets/Palette.dart';
 
@@ -13,10 +14,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Udalost',
       theme: ThemeData(
-        primarySwatch: Colors.red,
+        primarySwatch: Palette.purpleNavy,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Login(),
+      home: EvenementPage(),
     );
   }
 }

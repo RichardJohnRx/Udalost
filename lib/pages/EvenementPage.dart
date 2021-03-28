@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:udalost/assets/Palette.dart';
 import 'package:udalost/components/TitleContainer.dart';
 import 'package:udalost/widgets/EvenementPreview.dart';
 
@@ -14,7 +15,11 @@ class EvenementPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            TitleContainer('Tes Événements'),
+            TitleContainer(
+              'Tes Événements',
+              titleColor: Palette.purpleNavy,
+              buttonColor: Palette.purpleNavy,
+            ),
             Container(
               height: 210,
               child:ListView(
@@ -27,7 +32,11 @@ class EvenementPage extends StatelessWidget {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.015,
             ),
-            TitleContainer('Invitations'),
+            TitleContainer(
+              'Invitations',
+              titleColor: Palette.purpleNavy,
+              buttonColor: Palette.purpleNavy,
+            ),
             Container(
               height: 210,
               child:ListView(
@@ -40,7 +49,11 @@ class EvenementPage extends StatelessWidget {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.015,
             ),
-            TitleContainer('Événements publics'),
+            TitleContainer(
+              'Événements publics',
+              titleColor: Palette.purpleNavy,
+              buttonColor: Palette.purpleNavy,
+            ),
             Container(
               height: 210,
               child:ListView(
