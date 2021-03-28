@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:udalost/pages/EvenementPage.dart';
+import 'package:udalost/pages/EvenementHomePage.dart';
 import 'package:udalost/pages/Login.dart';
 import 'package:udalost/assets/Palette.dart';
 

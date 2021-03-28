@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 
 class EvenementPreview extends StatelessWidget {
-  EvenementPreview({this.index});
+  EvenementPreview({Key key, this.index, this.marginHorizontal = 10.0}) : super(key: key);
 
   final int index;
+  final double marginHorizontal;
   final double width = 200;
   final double height = 190;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(10.0),
+      margin: EdgeInsets.symmetric(
+        vertical: 10.0,
+        horizontal: marginHorizontal,
+      ),
       width: width,
       height: height,
       decoration: BoxDecoration(
