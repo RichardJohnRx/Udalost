@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:udalost/widgets/SignIn.dart';
-import 'package:udalost/widgets/SignUp.dart';
+import 'file:///D:/Richard%20John%20Rx/Documents/Mis%20Archivos/LP%20CIASIE/Atelier/2/udalost/lib/pages/SignIn.dart';
+import 'file:///D:/Richard%20John%20Rx/Documents/Mis%20Archivos/LP%20CIASIE/Atelier/2/udalost/lib/pages/SignUp.dart';
 
 class Login extends StatelessWidget {
 
