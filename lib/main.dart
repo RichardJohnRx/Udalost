@@ -1,8 +1,9 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:udalost/pages/EvenementHomePage.dart';
-import 'package:udalost/pages/Login.dart';
+import 'package:udalost/pages/Accueil.dart';
 import 'package:udalost/assets/Palette.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 void main() {
   HttpOverrides.global = new MyHttpOverrides();
@@ -10,6 +11,11 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  // mettre les objets qu'on va utiliser dans toute l'appli
+  // mettre un utilisateur
+
+  // Create storage to stock the jwt token
+  // final storage = new FlutterSecureStorage();
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +25,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Palette.purpleNavy,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Login(),
+      home: Accueil(),
     );
   }
 }

@@ -1,13 +1,31 @@
 import 'package:flutter/material.dart';
+import 'dart:convert';
+import 'package:http/http.dart';
 import 'package:udalost/pages/SignIn.dart';
 import 'package:udalost/pages/SignUp.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:udalost/controllers/UtilisateurController.dart';
 
-class Login extends StatefulWidget {
+class Accueil extends StatefulWidget {
+  const Accueil({Key key, this.signIn/*, this.storage*/}) : super(key: key);
+  final Function signIn;
+  // final storage;
+
   @override
-  _LoginState createState() => _LoginState();
+  _AccueilState createState() => _AccueilState();
 }
 
-class _LoginState extends State<Login> {
+class _AccueilState extends State<Accueil> {
+
+  // final storage = new FlutterSecureStorage();
+
+  @override
+  // ZONE DE TESTS POUR API
+    void initState() {
+    super.initState();
+    // signIn('mobileflutter@gmail.com', 'azerty');
+    // editUser('8c7ff0c6-d97f-40ed-b14f-74def4856cf4', 'Moe', 'MOOOOOOOOOE', 'mobile.flutter@gmail.com', 'azerty123', 'MobileeeFlutterrr');
+  }
 
   @override
   Widget build(BuildContext context) {
