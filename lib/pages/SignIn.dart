@@ -2,7 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:udalost/components/TextFieldContainer.dart';
 import 'package:udalost/pages/SignUp.dart';
 
-class SignIn extends StatelessWidget {
+class SignIn extends StatefulWidget {
+  @override
+  _SignInState createState() => _SignInState();
+}
+
+class _SignInState extends State<SignIn> {
+  final _emailTFC = TextEditingController();
+  final _motpasseTFC = TextEditingController();
+
+  @override
+  void dispose(){
+    _emailTFC.dispose();
+    _motpasseTFC.dispose();
+    super.dispose();
+  }
+
+  _showDialog(BuildContext context){
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          content: Text(_emailTFC.text + ': ' + _motpasseTFC.text),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,9 +51,10 @@ class SignIn extends StatelessWidget {
                   height: MediaQuery.of(context).size.height * 0.08,
                 ),
                 TextFieldContainer(
-                  child: TextField(
+                  child: TextFormField(
+                    controller: _emailTFC,
                     decoration: InputDecoration(
-                      hintText: 'Email',
+                      labelText: 'Email',
                       icon: Icon(
                         Icons.person,
                         color: Color.fromRGBO(72, 72, 119, 1),
@@ -40,7 +67,8 @@ class SignIn extends StatelessWidget {
                   height: MediaQuery.of(context).size.height * 0.01,
                 ),
                 TextFieldContainer(
-                  child: TextField(
+                  child: TextFormField(
+                    controller: _motpasseTFC,
                     obscureText: true,
                     decoration: InputDecoration(
                       hintText: 'Mot de Passe',
@@ -78,7 +106,9 @@ class SignIn extends StatelessWidget {
                     shape: new RoundedRectangleBorder(
                       borderRadius: new BorderRadius.circular(50.0),
                     ),
-                    onPressed: (){},
+                    onPressed: (){
+                      _showDialog(context);
+                    },
                   ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.015,

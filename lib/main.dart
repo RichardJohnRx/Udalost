@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Palette.purpleNavy,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: EvenementPage(),
+      home: Login(),
     );
   }
 }
