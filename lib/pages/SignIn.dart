@@ -10,22 +10,25 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
+  final _emailTFC = TextEditingController();
+  final _motpasseTFC = TextEditingController();
 
+  @override
+  void dispose(){
+    _emailTFC.dispose();
+    _motpasseTFC.dispose();
+    super.dispose();
+  }
 
-  Future<Response> auth () async {
-    String username = 'michel.dupont@gmail.com';
-    String password = '1234';
-    String basicAuth = 'Basic ' + base64Encode(utf8.encode('$username:$password'));
-    print(basicAuth);
-    Map<String, String> headers = {'content-type':'application/json', 'accept':'application/json', 'Authorization':basicAuth, "Origin": "",};
-    try {
-      var response = await post('https://api.udalost.web:10243/connexion', headers: headers);
-      print(response.body);
-      return response;
-    } catch (e){
-      print(e);
-      return e;
-    }
+  _showDialog(BuildContext context){
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          content: Text(_emailTFC.text + ': ' + _motpasseTFC.text),
+        );
+      },
+    );
   }
 
   @override
@@ -50,7 +53,8 @@ class _SignInState extends State<SignIn> {
                   height: MediaQuery.of(context).size.height * 0.08,
                 ),
                 TextFieldContainer(
-                  child: TextField(
+                  child: TextFormField(
+                    controller: _emailTFC,
                     decoration: InputDecoration(
                       labelText: 'Email',
                       icon: Icon(
@@ -65,7 +69,8 @@ class _SignInState extends State<SignIn> {
                   height: MediaQuery.of(context).size.height * 0.01,
                 ),
                 TextFieldContainer(
-                  child: TextField(
+                  child: TextFormField(
+                    controller: _motpasseTFC,
                     obscureText: true,
                     decoration: InputDecoration(
                       hintText: 'Mot de Passe',
@@ -104,7 +109,11 @@ class _SignInState extends State<SignIn> {
                       borderRadius: new BorderRadius.circular(50.0),
                     ),
                     onPressed: (){
+<<<<<<< HEAD
                       auth();
+=======
+                      _showDialog(context);
+>>>>>>> evenement
                     },
                   ),
                 SizedBox(

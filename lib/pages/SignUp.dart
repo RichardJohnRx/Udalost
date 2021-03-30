@@ -2,8 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:udalost/components/TextFieldContainer.dart';
 import 'package:udalost/pages/SignIn.dart';
 
+class SignUp extends StatefulWidget {
+  @override
+  _SignUpState createState() => _SignUpState();
+}
 
-class SignUp extends StatelessWidget {
+class _SignUpState extends State<SignUp> {
+  final _nomTFC = TextEditingController();
+  final _prenomTFC = TextEditingController();
+  final _emailTFC = TextEditingController();
+  final _usernameTFC = TextEditingController();
+  final _motpasseTFC = TextEditingController();
+
+  @override
+  void dispose(){
+    _nomTFC.dispose();
+    _prenomTFC.dispose();
+    _emailTFC.dispose();
+    _usernameTFC.dispose();
+    _motpasseTFC.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,6 +50,7 @@ class SignUp extends StatelessWidget {
                 ),
                 TextFieldContainer(
                   child: TextField(
+                    controller: _nomTFC,
                     decoration: InputDecoration(
                       hintText: 'Nom',
                       icon: Icon(
@@ -45,6 +66,7 @@ class SignUp extends StatelessWidget {
                 ),
                 TextFieldContainer(
                   child: TextField(
+                    controller: _prenomTFC,
                     decoration: InputDecoration(
                       hintText: 'Prénom',
                       icon: Icon(
@@ -60,6 +82,7 @@ class SignUp extends StatelessWidget {
                 ),
                 TextFieldContainer(
                   child: TextField(
+                    controller: _emailTFC,
                     decoration: InputDecoration(
                       hintText: 'Email',
                       icon: Icon(
@@ -75,6 +98,7 @@ class SignUp extends StatelessWidget {
                 ),
                 TextFieldContainer(
                   child: TextField(
+                    controller: _usernameTFC,
                     decoration: InputDecoration(
                       hintText: 'Username',
                       icon: Icon(
@@ -90,6 +114,7 @@ class SignUp extends StatelessWidget {
                 ),
                 TextFieldContainer(
                   child: TextField(
+                    controller: _motpasseTFC,
                     obscureText: true,
                     decoration: InputDecoration(
                       hintText: 'Mot de Passe',
