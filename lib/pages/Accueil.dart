@@ -17,13 +17,36 @@ class Accueil extends StatefulWidget {
 
 class _AccueilState extends State<Accueil> {
 
+  final storage = new FlutterSecureStorage();
+
   // final storage = new FlutterSecureStorage();
 
+  Future<Response> signIn (username, password) async {
+      String basicAuth = 'Basic ' + base64Encode(utf8.encode('$username:$password'));
+      print(basicAuth);
+      Map<String, String> headers = {'content-type':'application/json', 'accept':'application/json', 'Authorization':basicAuth, "Origin": "",};
+
+      try {
+        var response = await post('https://api.udalost.web:10243/connexion', headers: headers);
+        
+        Map<String, dynamic> parseBody = jsonDecode(response.body);
+        print(parseBody['token']);
+        // Write value in the storage
+        await storage.write(key: 'jwt', value: parseBody['token']);
+        return response;
+      } catch (e){
+        print(e);
+        return e;
+      }
+    }
+
   @override
-  // ZONE DE TESTS POUR API
     void initState() {
     super.initState();
-    // signIn('mobileflutter@gmail.com', 'azerty');
+    // commentEvent('5d53f343-b810-4e08-a4ea-48942b3239bf', '31', 'Le bowling je kiffe !', '');
+    // signIn('mobile.flutter@gmail.com', 'azerty123');
+    // joinEvent('5d53f343-b810-4e08-a4ea-48942b3239bf', 'Participant sans token', 1, 'Je suis un participant wouhou');
+    // editEvent('5d53f343-b810-4e08-a4ea-48942b3239bf', 'Soirée bowling au Fun park ! Go go go !!!', 'On fera même peut-être un laser-game juste après le bowling ! :D', '2021-04-25', '19:00:00', '48.1079988', '7.3691111', '11 rue Curie', '68000', 'Colmar', 'France', 0);
     // editUser('8c7ff0c6-d97f-40ed-b14f-74def4856cf4', 'Moe', 'MOOOOOOOOOE', 'mobile.flutter@gmail.com', 'azerty123', 'MobileeeFlutterrr');
   }
 

@@ -62,7 +62,7 @@ class Utilisateur{
   }
 
   static Function signIn(storage, username, password) {
-    Future<Response> signIn (username, password) async {
+    Future<Response> signIn (storage, username, password) async {
       String basicAuth = 'Basic ' + base64Encode(utf8.encode('$username:$password'));
       print(basicAuth);
       Map<String, String> headers = {'content-type':'application/json', 'accept':'application/json', 'Authorization':basicAuth, "Origin": "",};
@@ -82,11 +82,10 @@ class Utilisateur{
     }
   }
 
-  static Function editUser(id, nom, prenom, email, motpasse, username) {
+  static Function editUser(storage, id, nom, prenom, email, motpasse, username) {
     Future<Response> editUser (storage, id, nom, prenom, email, motpasse, username) async {
       String value = await storage.read(key: 'jwt');
-      String bearerToken = 'Bearer ' + '$value';
-      print(bearerToken);
+      String bearerToken = '$value';
 
       var body = jsonEncode(<String, String>{
         "nom":"$nom",
@@ -97,7 +96,7 @@ class Utilisateur{
       });
       
 
-      Map<String, String> headers = {'content-type':'application/json', 'accept':'application/json', /*'Authorization':bearerToken,*/ "Origin": "",};
+      Map<String, String> headers = {'content-type':'application/json', 'accept':'application/json', 'Authorization': 'Bearer ' + bearerToken, "Origin": "",};
       try {
         var response = await put('https://api.udalost.web:10243/utilisateurs/$id', headers: headers, body: body);
         print(response.body);
