@@ -31,7 +31,7 @@ class EvenementMaster extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * 0.02,
               ),
               Container(
-                height: MediaQuery.of(context).size.height * 0.79,
+                height: MediaQuery.of(context).size.height * 0.796,
                 child:GridView.count(
                   crossAxisCount: 2,
                   children: List.generate(100, (index) {
