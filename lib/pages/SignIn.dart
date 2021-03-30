@@ -109,11 +109,7 @@ class _SignInState extends State<SignIn> {
                       borderRadius: new BorderRadius.circular(50.0),
                     ),
                     onPressed: (){
-<<<<<<< HEAD
-                      auth();
-=======
                       _showDialog(context);
->>>>>>> evenement
                     },
                   ),
                 SizedBox(
