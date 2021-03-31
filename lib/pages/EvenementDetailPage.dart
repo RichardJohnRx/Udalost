@@ -1,25 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:udalost/assets/Palette.dart';
-import 'package:udalost/components/TitleContainer.dart';
-import 'package:udalost/widgets/EvenementPreview.dart';
+import 'package:udalost/components/Map.dart';
 
 class EvenementDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Palette.purpleNavy,
+      appBar: AppBar(
+        title: Text('Title'),
+      ),
       body: Stack(
         children: [
-          Center(
-            child: Text(
-              'Insert Mapa Ici',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-              ),
-            ),
-          ),
+          Map(),
           BottomModal(),
         ],
       ),
