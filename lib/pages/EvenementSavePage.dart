@@ -1,32 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:udalost/components/TextFieldContainer.dart';
-import 'package:udalost/pages/SignIn.dart';
 
-class SignUp extends StatefulWidget {
+class EvenementSavePage extends StatefulWidget {
   @override
-  _SignUpState createState() => _SignUpState();
+  _EvenementSavePageState createState() => _EvenementSavePageState();
 }
 
-class _SignUpState extends State<SignUp> {
-  final _nomTFC = TextEditingController();
-  final _prenomTFC = TextEditingController();
-  final _emailTFC = TextEditingController();
-  final _usernameTFC = TextEditingController();
-  final _motpasseTFC = TextEditingController();
+class _EvenementSavePageState extends State<EvenementSavePage> {
+  final _titreTFC = TextEditingController();
+  final _descriptionTFC = TextEditingController();
+  final _dateTFC = TextEditingController();
+  final _heureTFC = TextEditingController();
+  final _adresseTFC = TextEditingController();
+  final _codePostalTFC = TextEditingController();
+  final _villeTFC = TextEditingController();
+  final _paysTFC = TextEditingController();
+  final _typeTFC = TextEditingController();
 
   @override
   void dispose(){
-    _nomTFC.dispose();
-    _prenomTFC.dispose();
-    _emailTFC.dispose();
-    _usernameTFC.dispose();
-    _motpasseTFC.dispose();
+    _titreTFC.dispose();
+    _descriptionTFC.dispose();
+    _dateTFC.dispose();
+    _heureTFC.dispose();
+    _adresseTFC.dispose();
+    _codePostalTFC.dispose();
+    _villeTFC.dispose();
+    _paysTFC.dispose();
+    _typeTFC.dispose();
     super.dispose();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Title'),
+      ),
       body: Center(
         child: SingleChildScrollView(
           child: Container(
@@ -34,25 +43,13 @@ class _SignUpState extends State<SignUp> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.08,
-                ),
-                Text(
-                  'S\'Inscrire',
-                  style: TextStyle(
-                    fontFamily: 'Raleway',
-                    color: Color.fromRGBO(72, 72, 119, 1),
-                    fontWeight: FontWeight.w700,
-                    fontSize: 45.0,
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.09,
+                  height: MediaQuery.of(context).size.height * 0.05,
                 ),
                 TextFieldContainer(
                   child: TextField(
-                    controller: _nomTFC,
+                    controller: _titreTFC,
                     decoration: InputDecoration(
-                      hintText: 'Nom',
+                      hintText: 'Titre',
                       icon: Icon(
                         Icons.short_text,
                         color: Color.fromRGBO(72, 72, 119, 1),
@@ -66,9 +63,9 @@ class _SignUpState extends State<SignUp> {
                 ),
                 TextFieldContainer(
                   child: TextField(
-                    controller: _prenomTFC,
+                    controller: _descriptionTFC,
                     decoration: InputDecoration(
-                      hintText: 'Prénom',
+                      hintText: 'Description',
                       icon: Icon(
                         Icons.short_text,
                         color: Color.fromRGBO(72, 72, 119, 1),
@@ -82,11 +79,11 @@ class _SignUpState extends State<SignUp> {
                 ),
                 TextFieldContainer(
                   child: TextField(
-                    controller: _emailTFC,
+                    controller: _dateTFC,
                     decoration: InputDecoration(
-                      hintText: 'Email',
+                      hintText: 'Date',
                       icon: Icon(
-                        Icons.mail,
+                        Icons.calendar_today,
                         color: Color.fromRGBO(72, 72, 119, 1),
                       ),
                       border: InputBorder.none,
@@ -98,11 +95,11 @@ class _SignUpState extends State<SignUp> {
                 ),
                 TextFieldContainer(
                   child: TextField(
-                    controller: _usernameTFC,
+                    controller: _heureTFC,
                     decoration: InputDecoration(
-                      hintText: 'Username',
+                      hintText: 'Heure',
                       icon: Icon(
-                        Icons.person,
+                        Icons.access_time,
                         color: Color.fromRGBO(72, 72, 119, 1),
                       ),
                       border: InputBorder.none,
@@ -114,16 +111,59 @@ class _SignUpState extends State<SignUp> {
                 ),
                 TextFieldContainer(
                   child: TextField(
-                    controller: _motpasseTFC,
-                    obscureText: true,
+                    controller: _adresseTFC,
                     decoration: InputDecoration(
-                      hintText: 'Mot de Passe',
+                      hintText: 'Adresse',
                       icon: Icon(
-                        Icons.vpn_key,
+                        Icons.location_on,
                         color: Color.fromRGBO(72, 72, 119, 1),
                       ),
-                      suffixIcon: Icon(
-                        Icons.visibility,
+                      border: InputBorder.none,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.01,
+                ),
+                TextFieldContainer(
+                  child: TextField(
+                    controller: _adresseTFC,
+                    decoration: InputDecoration(
+                      hintText: 'Code Postal',
+                      icon: Icon(
+                        Icons.location_on,
+                        color: Color.fromRGBO(72, 72, 119, 1),
+                      ),
+                      border: InputBorder.none,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.01,
+                ),
+                TextFieldContainer(
+                  child: TextField(
+                    controller: _adresseTFC,
+                    decoration: InputDecoration(
+                      hintText: 'Ville',
+                      icon: Icon(
+                        Icons.location_on,
+                        color: Color.fromRGBO(72, 72, 119, 1),
+                      ),
+                      border: InputBorder.none,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.01,
+                ),
+                TextFieldContainer(
+                  child: TextField(
+                    controller: _adresseTFC,
+                    decoration: InputDecoration(
+                      hintText: 'Pays',
+                      icon: Icon(
+                        Icons.location_on,
                         color: Color.fromRGBO(72, 72, 119, 1),
                       ),
                       border: InputBorder.none,
@@ -135,7 +175,7 @@ class _SignUpState extends State<SignUp> {
                 ),
                 RaisedButton(
                   child: Text(
-                    'S\'Inscrire',
+                    'Sauvegarder',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
@@ -153,40 +193,6 @@ class _SignUpState extends State<SignUp> {
                     borderRadius: new BorderRadius.circular(50.0),
                   ),
                   onPressed: (){},
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.01,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      'Already have an Account ? ',
-                      style: TextStyle(
-                        fontFamily: 'Raleway',
-                        fontWeight: FontWeight.w300,
-                        color: Color.fromRGBO(72, 72, 119, 1),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: (){
-                        Navigator.pushReplacement(context, MaterialPageRoute(
-                            builder: (context){
-                              return SignIn();
-                            },
-                          ),
-                        );
-                      },
-                      child: Text(
-                        'Sign In',
-                        style: TextStyle(
-                          fontFamily: 'Raleway',
-                          fontWeight: FontWeight.w600,
-                          color: Color.fromRGBO(72, 72, 119, 1),
-                        ),
-                      ),
-                    ),
-                  ],
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.03,

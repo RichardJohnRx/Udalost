@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:udalost/pages/EvenementDetailPage.dart';
 import 'package:udalost/pages/EvenementHomePage.dart';
 import 'package:udalost/pages/Accueil.dart';
 import 'package:udalost/assets/Palette.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Palette.purpleNavy,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Accueil(),
+      home: EvenementDetailPage(),
     );
   }
 }

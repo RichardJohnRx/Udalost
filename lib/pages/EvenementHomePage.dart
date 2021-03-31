@@ -3,8 +3,7 @@ import 'package:udalost/assets/Palette.dart';
 import 'package:udalost/components/TitleContainer.dart';
 import 'package:udalost/widgets/EvenementPreview.dart';
 
-class EvenementPage extends StatelessWidget {
-
+class EvenementHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
