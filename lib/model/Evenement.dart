@@ -38,6 +38,37 @@ class Evenement {
     @required this.utilisateur,
   });
 
+  // Parse json data
+  // Evenement.fromJson(Map<String, dynamic> json):
+  // id = json["id"],
+  // titre = json["titre"],
+  // description = json["description"],
+  // date = json["date"],
+  // latitude = json["latitude"],
+  // heure = json["heure"],
+  // longitude = json["longitude"],
+  // adresse = json["adresse"],
+  // codePostal = json["codePostal"],
+  // ville = json["ville"],
+  // pays = json["pays"],
+  // type = json["type"],
+  // utilisateur = json["utilisateur"];
 
-
+  
+  // Convert model to json
+  // Map<String, dynamic> toJson() => {
+  //   'id': id,
+  //   'titre' : titre,
+  //   'description' : description,
+  //   'date' : date,
+  //   'latitude' : latitude,
+  //   'heure' : heure,
+  //   'longitude' : longitude,
+  //   'adresse' : adresse,
+  //   'codePostal' : codePostal,
+  //   'ville' : ville,
+  //   'pays' : pays,
+  //   'type' : type,
+  //   'utilisateur' : utilisateur,
+  // };
 }

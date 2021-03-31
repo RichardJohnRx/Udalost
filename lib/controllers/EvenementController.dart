@@ -7,8 +7,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 class Evenement{
   final storage = new FlutterSecureStorage();
 
-  static Function getAllEvents() {
-    Future<Response> getAllEvents () async {
+  static Future<Response>/*<List<Evenement>>*/ getAllEvents () async {
       Map<String, String> headers = {'content-type':'application/json', 'accept':'application/json', "Origin": "",};
       try {
         var response = await get('https://api.udalost.web:10243/evenements', headers: headers);
@@ -20,21 +19,22 @@ class Evenement{
         return e;
       }
     }
-  }
 
-  static Function getOneEvent(id) {
-    Future<Response> getOneEvent (id) async {
+    static Future<Response>/*<Evenement>*/ getOneEvent (id) async {
       Map<String, String> headers = {'content-type':'application/json', 'accept':'application/json', "Origin": "",};
       try {
         var response = await get('https://api.udalost.web:10243/evenements/$id', headers: headers);
         print(response.body);
+
+        // return Evenement(
+        //   id:,
+        // );
         return response;
       } catch (e){
         print(e);
         return e;
       }
     }
-  }
 
   static Function createEvent(storage, titre, description, date, heure, latitude, longitude, adresse, codePostal, ville, pays, type) {
     Future<Response> createEvent (storage, titre, description, date, heure, latitude, longitude, adresse, codePostal, ville, pays, type) async {
