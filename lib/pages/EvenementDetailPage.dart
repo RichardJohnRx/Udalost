@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:location/location.dart';
 import 'package:udalost/components/Map.dart';
 
-class EvenementDetailPage extends StatelessWidget {
+class EvenementDetailPage extends StatefulWidget {
+  @override
+  _EvenementDetailPageState createState() => _EvenementDetailPageState();
+}
+
+class _EvenementDetailPageState extends State<EvenementDetailPage> {
+
 
   @override
   Widget build(BuildContext context) {

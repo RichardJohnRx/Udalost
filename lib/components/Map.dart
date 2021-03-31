@@ -2,11 +2,14 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:location/location.dart';
 
 class MapWidget extends StatefulWidget {
-  MapWidget({this.lat,this.lon, this.isDetail = false});
+  MapWidget({this.lat,this.lon,this.latActual = 48.6828353,this.lonActual = 6.161166, this.isDetail = false});
   final double lat;
   final double lon;
+  final double latActual;
+  final double lonActual;
   final bool isDetail;
 
   @override
@@ -16,20 +19,12 @@ class MapWidget extends StatefulWidget {
 class _MapWidgetState extends State<MapWidget> {
   GoogleMapController _controller;
   Set<Marker> markers = Set();
-  double latActual = 48.6944952;
-  double lonActual = 6.1471303;
 
   void _getMarkers(){
     markers.add(
       Marker(
         markerId: MarkerId('Lieu de l\'événement'),
         position: LatLng(widget.lat,widget.lon),
-      )
-    );
-    markers.add(
-      Marker(
-        markerId: MarkerId('Position Actuelle'),
-        position: LatLng(latActual,lonActual),
       )
     );
   }
@@ -43,10 +38,10 @@ class _MapWidgetState extends State<MapWidget> {
     if(widget.isDetail){
       await _controller.getVisibleRegion();
       var bounds = LatLngBounds(
-        southwest: LatLng(min(widget.lat,latActual),min(widget.lon,lonActual)),
-        northeast: LatLng(max(widget.lat,latActual),max(widget.lon,lonActual)),
+        southwest: LatLng(min(widget.lat,widget.latActual),min(widget.lon,widget.lonActual)),
+        northeast: LatLng(max(widget.lat,widget.latActual),max(widget.lon,widget.lonActual)),
       );
-      _controller.animateCamera(CameraUpdate.newLatLngBounds(bounds, 50));
+      _controller.animateCamera(CameraUpdate.newLatLngBounds(bounds, 100));
     }
   }
 
@@ -61,6 +56,8 @@ class _MapWidgetState extends State<MapWidget> {
     return GoogleMap(
       markers: markers,
       zoomControlsEnabled: false,
+      myLocationEnabled: widget.isDetail,
+      myLocationButtonEnabled: widget.isDetail,
       initialCameraPosition: CameraPosition(
         target: LatLng(widget.lat,widget.lon),
         zoom: 12,
