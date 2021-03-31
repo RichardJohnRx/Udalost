@@ -27,7 +27,7 @@ class UdalostApp extends StatelessWidget {
         '/': (context) => Accueil(),
         '/signIn': (context) => SignIn(),
         '/signUp': (context) => SignUp(),
-        '/evenement/': (context) => EvenementHomePage(),
+        '/evenement': (context) => EvenementHomePage(),
         '/evenement/list': (context) => EvenementMaster(),
         '/evenement/detail': (context) => EvenementDetailPage(),
         '/evenement/save': (context) => EvenementSavePage(),

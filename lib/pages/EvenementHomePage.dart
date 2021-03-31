@@ -18,12 +18,13 @@ class EvenementHomePage extends StatelessWidget {
               'Tes Événements',
               titleColor: Palette.purpleNavy,
               buttonColor: Palette.purpleNavy,
+              onPressed: () => Navigator.pushNamed(context, '/evenement/list'),
             ),
             Container(
               height: 210,
               child:ListView(
                 scrollDirection: Axis.horizontal,
-                children: new List.generate(10, (index){
+                children: new List.generate(3, (index){
                   return EvenementPreview(index: index,);
                 }),
               ),
@@ -35,12 +36,13 @@ class EvenementHomePage extends StatelessWidget {
               'Invitations',
               titleColor: Palette.purpleNavy,
               buttonColor: Palette.purpleNavy,
+              onPressed: () => Navigator.pushNamed(context, '/evenement/list'),
             ),
             Container(
               height: 210,
               child:ListView(
                 scrollDirection: Axis.horizontal,
-                children: new List.generate(10, (index){
+                children: new List.generate(3, (index){
                   return EvenementPreview(index: index,);
                 }),
               ),
@@ -52,12 +54,13 @@ class EvenementHomePage extends StatelessWidget {
               'Événements publics',
               titleColor: Palette.purpleNavy,
               buttonColor: Palette.purpleNavy,
+              onPressed: () => Navigator.pushNamed(context, '/evenement/list'),
             ),
             Container(
               height: 210,
               child:ListView(
                 scrollDirection: Axis.horizontal,
-                children: new List.generate(10, (index){
+                children: new List.generate(3, (index){
                   return EvenementPreview(index: index,);
                 }),
               ),

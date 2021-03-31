@@ -5,12 +5,13 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 
 class MapWidget extends StatefulWidget {
-  MapWidget({this.lat,this.lon,this.latActual = 48.6828353,this.lonActual = 6.161166, this.isDetail = false});
+  MapWidget({this.lat,this.lon,this.latActual = 48.6828353,this.lonActual = 6.161166,this.zoom = 12,this.isDetail = false});
   final double lat;
   final double lon;
   final double latActual;
   final double lonActual;
   final bool isDetail;
+  final double zoom;
 
   @override
   _MapWidgetState createState() => _MapWidgetState();
@@ -60,7 +61,7 @@ class _MapWidgetState extends State<MapWidget> {
       myLocationButtonEnabled: widget.isDetail,
       initialCameraPosition: CameraPosition(
         target: LatLng(widget.lat,widget.lon),
-        zoom: 12,
+        zoom: widget.zoom,
       ),
       onMapCreated: _onMapCreated,
     );

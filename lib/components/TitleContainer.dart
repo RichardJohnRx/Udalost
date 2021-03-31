@@ -5,11 +5,13 @@ class TitleContainer extends StatelessWidget {
     Key key,
     this.titleColor = Colors.black,
     this.buttonColor = Colors.black,
+    this.onPressed,
   }) : super(key: key);
 
   final Color titleColor;
   final Color buttonColor;
   final String title;
+  final Function onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +51,7 @@ class TitleContainer extends StatelessWidget {
                 child: IconButton(
                   icon: Icon(Icons.arrow_forward_ios_rounded),
                   color: buttonColor,
-                  onPressed: () {},
+                  onPressed: onPressed,
                 ),
               ),
             ),

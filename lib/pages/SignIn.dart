@@ -110,6 +110,7 @@ class _SignInState extends State<SignIn> {
                     ),
                     onPressed: (){
                       _showDialog(context);
+                      Navigator.pushReplacementNamed(context, '/evenement');
                     },
                   ),
                 SizedBox(
@@ -128,12 +129,7 @@ class _SignInState extends State<SignIn> {
                     ),
                     GestureDetector(
                       onTap: (){
-                        Navigator.pushReplacement(context, MaterialPageRoute(
-                            builder: (context){
-                              return SignUp();
-                            },
-                          ),
-                        );
+                        Navigator.pushReplacementNamed(context, '/signUp');
                       },
                       child: Text(
                         'Sign Up',
