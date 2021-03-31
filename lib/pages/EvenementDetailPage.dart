@@ -11,7 +11,11 @@ class EvenementDetailPage extends StatelessWidget {
       ),
       body: Stack(
         children: [
-          Map(),
+          MapWidget(
+            lat: 48.6844952,
+            lon: 6.1571303,
+            isDetail: true,
+          ),
           BottomModal(),
         ],
       ),
@@ -26,7 +30,7 @@ class BottomModal extends StatelessWidget {
     return DraggableScrollableSheet(
       initialChildSize: 0.03,
       minChildSize: 0.03,
-      maxChildSize: 0.4,
+      maxChildSize: 0.45,
       builder: (context, scrollController){
         return Container(
           child: InformationWidget(
@@ -35,7 +39,7 @@ class BottomModal extends StatelessWidget {
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.vertical(
-              top: Radius.circular(40),
+              top: Radius.circular(50),
             ),
           ),
         );
