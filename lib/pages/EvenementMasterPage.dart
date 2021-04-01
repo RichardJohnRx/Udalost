@@ -36,7 +36,6 @@ class EvenementMaster extends StatelessWidget {
                   crossAxisCount: 2,
                   children: List.generate(7, (index) {
                     return EvenementPreview(
-                      index: index,
                       marginHorizontal: 6.0,
                     );
                   }),

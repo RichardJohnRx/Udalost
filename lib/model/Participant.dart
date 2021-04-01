@@ -11,8 +11,8 @@ class Participant {
 
   Participant({
     this.id,
-    @required this.nom,
-    @required this.utilisateur,
+    this.nom,
+    this.utilisateur,
     this.status = 0,
     this.message,
   });

@@ -1,14 +1,33 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:udalost/components/Map.dart';
+import 'package:udalost/model/Evenement.dart';
+import 'package:udalost/model/Utilisateur.dart';
+import 'package:udalost/pages/EvenementDetailPage.dart';
 
-class EvenementPreview extends StatelessWidget {
-  EvenementPreview({Key key, this.index, this.marginHorizontal = 10.0}) : super(key: key);
-
-  final int index;
+class EvenementPreview extends StatefulWidget {
+  EvenementPreview({Key key, this.evenement = null, this.marginHorizontal = 10.0}) : super(key: key);
   final double marginHorizontal;
+  final Evenement evenement;
+  @override
+  _EvenementPreviewState createState() => _EvenementPreviewState();
+}
+
+class _EvenementPreviewState extends State<EvenementPreview> {
+  double marginHorizontal;
   final double width = 200;
   final double height = 190;
+
+  Evenement _event;
+
+  @override
+  void initState() {
+    marginHorizontal = widget.marginHorizontal;
+    DateTime dt = DateTime.now();
+    TimeOfDay td= TimeOfDay.now();
+    Utilisateur user = Utilisateur(nom: 'nom', prenom: 'prenom', email: 'email@gmail.com', username: '', motpasse: 'motpasse');
+    _event = widget.evenement == null ? Evenement('', 'titre', 'description', dt, td, 48.6838353, 6.167166, 'adresse', 78000, 'ville', 'pays', user) : widget.evenement;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +46,7 @@ class EvenementPreview extends StatelessWidget {
         height: height,
         width: width,
         child: InkWell(
-          onTap: () => Navigator.pushNamed(context, '/evenement/detail'),
+          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => EvenementDetailPage(evenement: _event),)),
           child: Stack(
             children: <Widget>[
               Container(
@@ -47,8 +66,8 @@ class EvenementPreview extends StatelessWidget {
                     heightFactor: 0.3,
                     widthFactor: 2.5,
                     child: MapWidget(
-                      lat: 48.6844952,
-                      lon: 6.1571303,
+                      lat: _event.latitude,
+                      lon: _event.longitude,
                       zoom: 13,
                     ),
                   ),
@@ -90,7 +109,7 @@ class EvenementPreview extends StatelessWidget {
                         child: Container(
                           child: Column(
                             children:[
-                              Text('10h00'),
+                              Text(_event.heure.toString()),
                             ],
                             crossAxisAlignment: CrossAxisAlignment.start,
                           ),
@@ -119,7 +138,7 @@ class EvenementPreview extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         Text(
-                          '0$index',
+                          _event.date.day.toString(),
                           style: TextStyle(
                               fontFamily: 'Raleway',
                               fontSize: 19.0,
@@ -127,7 +146,7 @@ class EvenementPreview extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          'Jul',
+                          _event.date.month.toString(),
                           style: TextStyle(
                               fontFamily: 'Raleway',
                               fontSize: 19.0,

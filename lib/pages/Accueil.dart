@@ -101,12 +101,7 @@ class _AccueilState extends State<Accueil> {
                 borderRadius: new BorderRadius.circular(50.0),
               ),
               onPressed: (){
-                Navigator.push(context, MaterialPageRoute(
-                  builder: (context){
-                    return SignUp();
-                  },
-                ),
-                );
+                Navigator.pushNamed(context, '/signUp');
               },
             ),
             SizedBox(
@@ -137,12 +132,7 @@ class _AccueilState extends State<Accueil> {
                 ),
               ),
               onPressed: (){
-                Navigator.push(context, MaterialPageRoute(
-                    builder: (context){
-                      return SignIn();
-                    },
-                  ),
-                );
+                Navigator.pushNamed(context, '/signIn');
               },
             ),
           ],

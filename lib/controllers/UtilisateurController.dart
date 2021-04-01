@@ -6,9 +6,6 @@ import 'package:udalost/model/Utilisateur.dart';
 
 
 class UtilisateurController{
-  final FlutterSecureStorage storage;
-
-  UtilisateurController(this.storage);
 
   static Function getAllUsers() {
     Future<Response> getAllUsers () async {
@@ -59,7 +56,7 @@ class UtilisateurController{
         return response;
       } catch (e){
         print(e);
-        return e;
+        return null;
       }
     }
   }
@@ -79,7 +76,7 @@ class UtilisateurController{
       return parseBody['utilisateur'];
     } catch (e){
       print(e);
-      return e;
+      return null;
     }
   }
 

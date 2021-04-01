@@ -1,29 +1,43 @@
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
 import 'package:udalost/components/Map.dart';
+import 'package:udalost/model/Evenement.dart';
+import 'package:udalost/model/Utilisateur.dart';
 
 class EvenementDetailPage extends StatefulWidget {
+  EvenementDetailPage({Key key, this.evenement = null}) : super(key: key);
+  final Evenement evenement;
+
   @override
   _EvenementDetailPageState createState() => _EvenementDetailPageState();
 }
 
 class _EvenementDetailPageState extends State<EvenementDetailPage> {
+  Evenement _event;
 
+  @override
+  void initState() {
+    DateTime dt = DateTime.now();
+    TimeOfDay td= TimeOfDay.now();
+    Utilisateur user = Utilisateur(nom: 'nom', prenom: 'prenom', email: 'email@gmail.com', username: '', motpasse: 'motpasse');
+    _event = widget.evenement == null ? Evenement('', 'titre', 'description', dt, td, 48.6838353, 6.167166, 'adresse', 78000, 'ville', 'pays', user) : widget.evenement;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Title'),
+        title: Text(_event.titre),
       ),
       body: Stack(
         children: [
           MapWidget(
-            lat: 48.6844952,
-            lon: 6.1571303,
+            lat: _event.latitude,
+            lon: _event.longitude,
             isDetail: true,
           ),
-          BottomModal(),
+          BottomModal(event: _event,),
         ],
       ),
     );
@@ -31,7 +45,8 @@ class _EvenementDetailPageState extends State<EvenementDetailPage> {
 }
 
 class BottomModal extends StatelessWidget {
-
+  BottomModal({this.event});
+  final Evenement event;
   @override
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
@@ -41,6 +56,7 @@ class BottomModal extends StatelessWidget {
       builder: (context, scrollController){
         return Container(
           child: InformationWidget(
+            event: event,
             controller: scrollController,
           ),
           decoration: BoxDecoration(
@@ -56,8 +72,9 @@ class BottomModal extends StatelessWidget {
 }
 
 class InformationWidget extends StatelessWidget {
-  InformationWidget({this.controller});
+  InformationWidget({@required this.event, this.controller});
   final ScrollController controller;
+  final Evenement event;
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +110,8 @@ class InformationWidget extends StatelessWidget {
               Align(
                 alignment: Alignment.center,
                 child: Text(
-                  'Title',
+                  event.titre,
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                     fontFamily: 'Raleway',
                     fontSize: 30,
@@ -106,7 +124,7 @@ class InformationWidget extends StatelessWidget {
                   vertical: 4,
                 ),
                 child: Text(
-                  'Description',
+                  event.description,
                   style: TextStyle(
                     fontSize: 20,
                   ),
@@ -117,7 +135,7 @@ class InformationWidget extends StatelessWidget {
                   vertical: 4,
                 ),
                 child: Text(
-                  'Date et heure',
+                  event.date.toString(),
                   style: TextStyle(
                     fontSize: 20,
                   ),
@@ -128,7 +146,7 @@ class InformationWidget extends StatelessWidget {
                   vertical: 4,
                 ),
                 child: Text(
-                  'Adresse',
+                  event.adresse,
                   style: TextStyle(
                     fontSize: 20,
                   ),
@@ -139,7 +157,7 @@ class InformationWidget extends StatelessWidget {
                   vertical: 4,
                 ),
                 child: Text(
-                  'Code Postal',
+                  event.codePostal.toString(),
                   style: TextStyle(
                     fontSize: 20,
                   ),
@@ -150,7 +168,7 @@ class InformationWidget extends StatelessWidget {
                   vertical: 4,
                 ),
                 child: Text(
-                  'Ville',
+                  event.ville,
                   style: TextStyle(
                     fontSize: 20,
                   ),
@@ -161,7 +179,7 @@ class InformationWidget extends StatelessWidget {
                   vertical: 4,
                 ),
                 child: Text(
-                  'Pays',
+                  event.pays,
                   style: TextStyle(
                     fontSize: 20,
                   ),

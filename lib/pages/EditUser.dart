@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:thebattle/components/TextFieldContainer.dart';
+import 'package:udalost/components/TextFieldContainer.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:udalost/model/Utilisateur.dart';
 
 
 class EditUser extends StatefulWidget {
+  EditUser({@required this.user});
+  final Utilisateur user;
   @override
   _EditUserState createState() => _EditUserState();
 }
@@ -48,7 +51,8 @@ class _EditUserState extends State<EditUser> {
                           fontWeight: FontWeight.w300,
                           height: 0.1,
                         ),
-                        hintText: 'Modifier mon nom',
+                        labelText: 'Modifier mon nom',
+                        hintText: widget.user.nom,
                         icon: Icon(
                           Icons.short_text,
                           color: Color.fromRGBO(72, 72, 119, 1),
@@ -78,7 +82,8 @@ class _EditUserState extends State<EditUser> {
                           fontWeight: FontWeight.w300,
                           height: 0.1,
                         ),
-                        hintText: 'Modifier mon prénom',
+                        labelText: 'Modifier mon prénom',
+                        hintText: widget.user.prenom,
                         icon: Icon(
                           Icons.short_text,
                           color: Color.fromRGBO(72, 72, 119, 1),
@@ -108,7 +113,8 @@ class _EditUserState extends State<EditUser> {
                           fontWeight: FontWeight.w300,
                           height: 0.1,
                         ),
-                        hintText: 'Modifier mon email',
+                        labelText: 'Modifier mon email',
+                        hintText: widget.user.email,
                         icon: Icon(
                           Icons.mail,
                           color: Color.fromRGBO(72, 72, 119, 1),
@@ -138,7 +144,8 @@ class _EditUserState extends State<EditUser> {
                           fontWeight: FontWeight.w300,
                           height: 0.1,
                         ),
-                        hintText: 'Modifier mon username',
+                        labelText: 'Modifier mon username',
+                        hintText: widget.user.username,
                         icon: Icon(
                           Icons.person,
                           color: Color.fromRGBO(72, 72, 119, 1),
@@ -166,7 +173,7 @@ class _EditUserState extends State<EditUser> {
                           fontWeight: FontWeight.w300,
                           height: 0.1,
                         ),
-                        hintText: 'Modifier mon mot de passe',
+                        labelText: 'Modifier mon mot de passe',
                         icon: Icon(
                           Icons.vpn_key,
                           color: Color.fromRGBO(72, 72, 119, 1),

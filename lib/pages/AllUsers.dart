@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:thebattle/assets/Palette.dart';
-import 'package:thebattle/widgets/UserPreview.dart';
+import 'package:udalost/assets/Palette.dart';
+import 'package:udalost/widgets/UserPreview.dart';
 
 class AllUsers extends StatelessWidget {
 

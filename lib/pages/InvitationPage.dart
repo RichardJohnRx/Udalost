@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thebattle/components/TextFieldContainer.dart';
+import 'package:udalost/components/TextFieldContainer.dart';
 
 
 class Invitation extends StatefulWidget {

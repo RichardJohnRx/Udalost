@@ -22,21 +22,22 @@ class Evenement {
   List<Participant> participants;
   List<Commentaire> commentaires;
 
-  Evenement({
+  Evenement(
     this.id,
-    @required this.titre,
-    @required this.description,
-    @required this.date,
-    @required this.latitude,
-    @required this.heure,
-    @required this.longitude,
-    @required this.adresse,
-    @required this.codePostal,
-    @required this.ville,
-    @required this.pays,
-    this.type = 0,
-    @required this.utilisateur,
-  });
+    this.titre,
+    this.description,
+    this.date,
+    this.heure,
+    this.latitude,
+    this.longitude,
+    this.adresse,
+    this.codePostal,
+    this.ville,
+    this.pays,
+    this.utilisateur,
+    {this.participants,
+    this.type = 0,}
+  );
 
   // Parse json data
   // Evenement.fromJson(Map<String, dynamic> json):

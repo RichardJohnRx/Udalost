@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:udalost/model/Evenement.dart';
 
 class Utilisateur {
   final String id;
@@ -10,6 +11,8 @@ class Utilisateur {
   final String token;
   final DateTime derniereConnexion;
 
+  List<Evenement> evenements;
+
   Utilisateur({
     this.id,
     @required this.nom,
@@ -19,6 +22,7 @@ class Utilisateur {
     @required this.motpasse,
     this.token,
     this.derniereConnexion,
+    this.evenements,
   });
 
 }

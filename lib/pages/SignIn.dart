@@ -1,14 +1,31 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:flutter/rendering.dart';
 import 'package:udalost/components/TextFieldContainer.dart';
+import 'package:udalost/model/Utilisateur.dart';
 
 
 class SignIn extends StatefulWidget {
+  SignIn(this.storage,{this.user});
+  final storage;
+  Utilisateur user;
+
   @override
   _SignInState createState() => _SignInState();
 }
 
 class _SignInState extends State<SignIn> {
+  final _emailTFC = TextEditingController();
+  final _motpasseTFC = TextEditingController();
+
+  @override
+  void dispose(){
+    _emailTFC.dispose();
+    _motpasseTFC.dispose();
+    super.dispose();
+  }
 
   final _formKey = GlobalKey<FormState>();
 
@@ -43,6 +60,7 @@ class _SignInState extends State<SignIn> {
                     ),
                     TextFieldContainer(
                       child: TextFormField(
+                        controller: _emailTFC,
                         decoration: InputDecoration(
                           errorStyle: TextStyle(
                             fontSize: 10.0,
@@ -74,6 +92,7 @@ class _SignInState extends State<SignIn> {
                     TextFieldContainer(
                       child: TextFormField(
                         obscureText: _isObscure,
+                        controller: _motpasseTFC,
                         decoration: InputDecoration(
                           errorStyle: TextStyle(
                             fontSize: 10.0,
@@ -113,9 +132,14 @@ class _SignInState extends State<SignIn> {
                     ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState.validate()) {
-                          ScaffoldMessenger.of(context)
-                              .showSnackBar(
-                              SnackBar(content: Text('Envoie des données...')));
+                          try{
+                            Navigator.pushNamed(context, '/evenement');
+                          }catch(e){
+                            print(e);
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(
+                            SnackBar(content: Text('Données incorrects')));
+                          }
                         }
                       },
                       child: Text(
