@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:udalost/assets/Palette.dart';
 import 'package:udalost/pages/Accueil.dart';
 import 'package:udalost/pages/EvenementDetailPage.dart';
@@ -13,7 +14,7 @@ class UdalostApp extends StatelessWidget {
   // mettre un utilisateur
 
   // Create storage to stock the jwt token
-  // final storage = new FlutterSecureStorage();
+  final storage = new FlutterSecureStorage();
 
   @override
   Widget build(BuildContext context) {

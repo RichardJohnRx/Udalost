@@ -4,7 +4,7 @@ import 'package:http/http.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 
-class Evenement{
+class EvenementController{
   final storage = new FlutterSecureStorage();
 
   static Future<Response>/*<List<Evenement>>*/ getAllEvents () async {
